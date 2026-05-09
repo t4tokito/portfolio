@@ -1,0 +1,65 @@
+/* ===== CSS Reset ===== */
+@import "tailwindcss";
+body {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  background-size: cover;
+}
+.pixel-font {
+  font-family: "Pixelify Sans", system-ui;
+  font-weight: 400;
+  font-style: bold;
+}
+.boldonse-regular {
+  font-family: "Boldonse", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+.lilita-one-regular {
+  font-family: "Lilita One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.oneset-regular {
+  font-family: "Oneset", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+#image{
+  background-color: rgb(250, 250, 250,0.8);
+}
+#intro{
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  padding: 20px;
+  border-radius: 20px; 
+  background-color: rgb(250, 250, 250,0.8);
+}
+#education{
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  padding: 20px;
+  border-radius: 20px; 
+  background-color: rgb(250, 250, 250,0.8);
+}
+#skills{
+  box-shadow: rgba(0, 0, 0, 0.02)
+  0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  padding: px;
+  border-radius: 20px;
+  background-color: rgb(250, 250, 250,0.8);
+}
+#top{
+  border: 1px solid rgb(200, 200, 200,0.5);
+  border-radius: 20px;
+}
+.certificate{
+  box-shadow: rgba(0, 0, 0, 0.02)
+  0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  border-radius: 5px;
+}
+#contact{
+  box-shadow: rgba(0, 0, 0, 0.02)
+  0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  padding: 20px;
+  border-radius: 20px;
+}
