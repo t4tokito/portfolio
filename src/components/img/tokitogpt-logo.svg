@@ -1,0 +1,53 @@
+<svg width="600" height="440" viewBox="0 0 600 440" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="TokitoGPT logo">
+  <defs>
+    <linearGradient id="tg-bg" x1="0" y1="0" x2="600" y2="440" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#14141f"/>
+      <stop offset="1" stop-color="#0d0d14"/>
+    </linearGradient>
+    <linearGradient id="tg-accent" x1="180" y1="120" x2="420" y2="320" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#89b4fa"/>
+      <stop offset="0.55" stop-color="#b4befe"/>
+      <stop offset="1" stop-color="#cba6f7"/>
+    </linearGradient>
+    <radialGradient id="tg-glow" cx="0.5" cy="0.42" r="0.5">
+      <stop offset="0" stop-color="#b4befe" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#b4befe" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- background -->
+  <rect width="600" height="440" fill="url(#tg-bg)"/>
+
+  <!-- subtle grid -->
+  <g stroke="#ffffff" stroke-opacity="0.04" stroke-width="1">
+    <path d="M0 80 H600 M0 160 H600 M0 240 H600 M0 320 H600 M0 400 H600"/>
+    <path d="M80 0 V440 M160 0 V440 M240 0 V440 M320 0 V440 M400 0 V440 M480 0 V440"/>
+  </g>
+
+  <!-- ambient glow behind mark -->
+  <circle cx="300" cy="178" r="170" fill="url(#tg-glow)"/>
+
+  <!-- chat bubble mark -->
+  <g transform="translate(300 178)">
+    <!-- outer ring -->
+    <circle r="92" fill="none" stroke="url(#tg-accent)" stroke-opacity="0.35" stroke-width="2" stroke-dasharray="6 10"/>
+    <!-- bubble body -->
+    <path d="M-66 -50 q0 -22 22 -22 H44 q22 0 22 22 V28 q0 22 -22 22 H6 L-26 80 V50 H-44 q-22 0 -22 -22 Z"
+          fill="#1a1a27" stroke="url(#tg-accent)" stroke-width="5" stroke-linejoin="round"/>
+    <!-- AI spark -->
+    <path d="M0 -34 L10 -6 L38 4 L10 14 L0 42 L-10 14 L-38 4 L-10 -6 Z"
+          fill="url(#tg-accent)"/>
+    <circle cx="-30" cy="34" r="5" fill="#cba6f7"/>
+    <circle cx="34" cy="-28" r="4" fill="#89b4fa"/>
+  </g>
+
+  <!-- wordmark -->
+  <text x="300" y="356" text-anchor="middle"
+        font-family="'Space Grotesk', 'Segoe UI', sans-serif" font-size="52" font-weight="700"
+        fill="#ffffff" letter-spacing="1">Tokito<tspan fill="url(#tg-accent)">GPT</tspan></text>
+
+  <!-- tagline -->
+  <text x="300" y="392" text-anchor="middle"
+        font-family="'Space Grotesk', monospace" font-size="17" font-weight="500"
+        fill="#9aa0b8" letter-spacing="3">AI&#160;&#160;CHAT&#160;&#160;ASSISTANT</text>
+</svg>

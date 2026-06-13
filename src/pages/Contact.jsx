@@ -45,8 +45,8 @@ const Contact = () => {
     },
     {
       label: 'GitHub',
-      value: 'github.com/vikasmourya10',
-      href: 'https://github.com/vikasmourya10',
+      value: 'github.com/t4tokito',
+      href: 'https://github.com/t4tokito',
       icon: Github,
       color: 'hover:border-teal/30 text-teal bg-teal/5'
     }
@@ -54,7 +54,7 @@ const Contact = () => {
 
   return (
     <div className="relative min-h-screen w-full py-16 px-4 md:px-8 overflow-hidden">
-      
+
       {/* Background ambient light */}
       <div className="absolute top-1/3 left-1/10 w-96 h-96 aura-glow-blue rounded-full filter blur-3xl opacity-30 pointer-events-none animate-pulse-glow" />
       <div className="absolute bottom-1/3 right-1/10 w-96 h-96 aura-glow-mauve rounded-full filter blur-3xl opacity-30 pointer-events-none animate-pulse-glow animate-float-delayed" />
@@ -74,7 +74,7 @@ const Contact = () => {
 
         {/* Dashboard Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
-          
+
           {/* Left Column: Visual Profile Hud (Cols 1-5) */}
           <div className="lg:col-span-5 flex flex-col justify-center items-center animate-fade-up delay-1">
             <div className="glass-card p-6 rounded-3xl w-full flex flex-col items-center justify-center gap-6 relative overflow-hidden group">
@@ -106,9 +106,9 @@ const Contact = () => {
               </div>
 
               {/* Instagram tag */}
-              <a 
-                href="https://www.instagram.com/t4tokito/" 
-                target="_blank" 
+              <a
+                href="https://www.instagram.com/t4tokito/"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 px-6 py-2.5 rounded-full bg-surface border border-white/5 hover:border-pink/40 transition-all duration-300 group/insta mt-2"
               >

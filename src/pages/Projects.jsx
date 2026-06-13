@@ -1,5 +1,5 @@
 import React from 'react'
-import gif from '../components/img/gif.gif'
+import tokitogptLogo from '../components/img/tokitogpt-logo.svg'
 import { FolderGit2, ExternalLink, Code2, Cpu } from 'lucide-react'
 
 const Github = ({ size = 20, ...props }) => (
@@ -24,7 +24,7 @@ const Projects = () => {
       title: 'TokitoGPT',
       subtitle: 'A high-speed chatbot powered by AI',
       desc: 'An interactive conversational interface styled with responsive design layouts, parsing markdown, storing context streams, and providing real-time AI prompt processing.',
-      preview: gif,
+      preview: tokitogptLogo,
       tags: ['React.js', 'Tailwind CSS', 'Vite', 'AI Integration'],
       github: 'https://github.com/vikasmourya10/chatbot',
       live: 'https://tokitogpt.netlify.app/'
@@ -64,10 +64,11 @@ const Projects = () => {
                 {/* Backdrop scanlines */}
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(18,24,38,0)_95%,rgba(137,180,250,0.10)_95%)] bg-[length:100%_16px] pointer-events-none z-10" />
                 <div className="absolute inset-0 bg-canvas/40 group-hover:bg-canvas/10 transition-colors duration-300 z-10" />
-                <img 
-                  src={project.preview} 
-                  alt={project.title} 
+                <img
+                  src={project.preview}
+                  alt={project.title}
                   className="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
                 />
               </div>
 
