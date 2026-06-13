@@ -1,7 +1,7 @@
 import React from 'react'
 import Top from '../components/top'
 
-const home = () => {
+const Home = () => {
   return (
     <div>
       <Top />
@@ -9,4 +9,4 @@ const home = () => {
   )
 }
 
-export default home
+export default Home
