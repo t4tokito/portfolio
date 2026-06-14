@@ -1,6 +1,6 @@
 import React from 'react'
 import tokitogptLogo from '../components/img/tokitogpt-logo.svg'
-import { FolderGit2, ExternalLink, Code2, Cpu } from 'lucide-react'
+import { ExternalLink, Cpu, ArrowRight } from 'lucide-react'
 
 const Github = ({ size = 20, ...props }) => (
   <svg
@@ -22,122 +22,96 @@ const Projects = () => {
   const projectsList = [
     {
       title: 'TokitoGPT',
-      subtitle: 'A high-speed chatbot powered by AI',
-      desc: 'An interactive conversational interface styled with responsive design layouts, parsing markdown, storing context streams, and providing real-time AI prompt processing.',
+      subtitle: 'High-speed AI chatbot',
+      desc: 'An interactive conversational interface with responsive layouts, markdown parsing, context streams, and real-time AI prompt processing.',
       preview: tokitogptLogo,
       tags: ['React.js', 'Tailwind CSS', 'Vite', 'AI Integration'],
       github: 'https://github.com/vikasmourya10/chatbot',
-      live: 'https://tokitogpt.netlify.app/'
-    }
+      live: 'https://tokitogpt.netlify.app/',
+    },
   ]
 
   return (
-    <div className="relative min-h-screen w-full py-16 px-4 md:px-8 overflow-hidden">
-      
-      {/* Ambient background glows */}
-      <div className="absolute top-1/4 left-1/10 w-96 h-96 aura-glow-blue rounded-full filter blur-3xl opacity-35 pointer-events-none animate-pulse-glow" />
-      <div className="absolute bottom-1/4 right-1/10 w-96 h-96 aura-glow-mauve rounded-full filter blur-3xl opacity-35 pointer-events-none animate-pulse-glow animate-float-delayed" />
+    <div className="relative w-full py-14 md:py-20 px-4 md:px-8 overflow-hidden">
+      <div className="max-w-7xl mx-auto">
 
-      <div className="max-w-7xl mx-auto relative z-10">
-
-        {/* Page Title */}
-        <div className="text-center mb-16 animate-fade-up">
-          <h1 className="text-4xl md:text-6xl font-space font-extrabold tracking-tight text-white inline-flex items-center gap-4">
-            <FolderGit2 className="text-sapphire w-10 h-10 md:w-14 md:h-14 animate-pulse" />
-            My <span className="text-gradient">Projects</span>
+        {/* Header */}
+        <div className="mb-12 md:mb-16 animate-fade-up">
+          <span className="term-label mb-4">// SYSTEM.QUERY_REPOSITORIES</span>
+          <h1 className="text-4xl md:text-6xl font-space font-black tracking-tight text-ink leading-none">
+            Selected <span className="text-accent">Work</span>
           </h1>
-          <p className="text-muted font-mono text-xs md:text-sm mt-3 uppercase tracking-widest">
-            System.Query_Repositories()
+          <p className="text-muted mt-4 max-w-xl">
+            A focused log of shipped builds — each one a real product, not a demo.
           </p>
         </div>
 
-        {/* Projects Grid */}
-        <div className="flex flex-col items-center justify-center">
+        {/* Projects */}
+        <div className="flex flex-col gap-8">
           {projectsList.map((project, index) => (
             <div
-              key={index}
-              className="w-full max-w-4xl glass-card rounded-3xl overflow-hidden grid grid-cols-1 md:grid-cols-12 gap-6 hover:shadow-[0_0_35px_rgba(137,180,250,0.18)] transition-all duration-550 border border-white/5 animate-fade-up delay-1"
+              key={project.title}
+              className="glass-card overflow-hidden grid grid-cols-1 md:grid-cols-12 animate-fade-up delay-1"
             >
-
-              {/* Project Visual (Cols 1-6) */}
-              <div className="md:col-span-6 relative h-60 md:h-full min-h-[260px] overflow-hidden group border-b md:border-b-0 md:border-r border-white/5">
-                {/* Backdrop scanlines */}
-                <div className="absolute inset-0 bg-[linear-gradient(rgba(18,24,38,0)_95%,rgba(137,180,250,0.10)_95%)] bg-[length:100%_16px] pointer-events-none z-10" />
-                <div className="absolute inset-0 bg-canvas/40 group-hover:bg-canvas/10 transition-colors duration-300 z-10" />
+              {/* Visual */}
+              <div className="md:col-span-6 relative min-h-[240px] md:min-h-[320px] overflow-hidden group border-b md:border-b-0 md:border-r border-line bg-elevated/30">
                 <img
                   src={project.preview}
                   alt={project.title}
-                  className="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
+                <span className="absolute top-4 left-4 term-label bg-canvas/70 backdrop-blur px-2.5 py-1 rounded-md border border-line">
+                  <Cpu size={12} /> NODE.0{index + 1}
+                </span>
               </div>
 
-              {/* Project Meta Content (Cols 7-12) */}
+              {/* Meta */}
               <div className="md:col-span-6 p-6 md:p-8 flex flex-col justify-between gap-6">
                 <div>
-                  
-                  {/* Category Accent */}
-                  <div className="flex items-center gap-2 text-sapphire text-xs font-mono tracking-widest uppercase mb-3">
-                    <Cpu size={12} />
-                    <span>Project_Node.0{index + 1}</span>
-                  </div>
-
-                  {/* Title & Subtitle */}
-                  <h3 className="text-2xl md:text-3xl font-space font-extrabold text-white mb-2">
+                  <h3 className="text-2xl md:text-3xl font-space font-black text-ink mb-1.5">
                     {project.title}
                   </h3>
-                  <p className="text-lavender/90 font-medium text-sm mb-4">
-                    {project.subtitle}
-                  </p>
-
-                  {/* Description */}
-                  <p className="text-muted text-sm md:text-base leading-relaxed mb-6 font-outfit">
+                  <p className="text-accent font-medium text-sm mb-4">{project.subtitle}</p>
+                  <p className="text-muted text-sm md:text-base leading-relaxed mb-6">
                     {project.desc}
                   </p>
 
-                  {/* Technical Tags */}
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-3 py-1 rounded-full text-xs font-mono font-medium text-lavender bg-lavender/10 border border-lavender/20"
+                        className="px-3 py-1 rounded-md text-xs font-mono text-muted bg-elevated border border-line"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
-
                 </div>
 
-                {/* Actions Grid */}
-                <div className="flex items-center gap-4 mt-2">
+                <div className="flex items-center gap-3">
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-white/5 border border-white/5 text-muted font-semibold text-sm hover:text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+                    className="flex-1 btn-tactical btn-ghost"
                   >
-                    <Github size={16} />
-                    <span>Source Code</span>
+                    <Github size={15} /> Source
                   </a>
-
                   <a
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 flex items-center justify-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-blue to-mauve text-[#0d0d14] font-bold text-sm shadow-lg shadow-lavender/15 hover:shadow-lavender/30 hover:scale-[1.02] transition-all duration-300"
+                    className="flex-1 btn-tactical btn-primary group"
                   >
-                    <ExternalLink size={16} />
-                    <span>Live Demo</span>
+                    <ExternalLink size={15} /> Live
+                    <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
                   </a>
                 </div>
-
               </div>
-
             </div>
           ))}
         </div>
-
       </div>
     </div>
   )

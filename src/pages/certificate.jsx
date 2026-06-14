@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import mui from '../components/img/mui3.png'
 import certificate1 from './certificates/1.jpg'
 import certificate2 from './certificates/2.jpg'
 import certificate3 from './certificates/03.jpg'
@@ -11,7 +10,7 @@ import certificate8 from './certificates/08.jpg'
 import certificate9 from './certificates/09.jpg'
 import certificate10 from './certificates/10.jpg'
 import certificate11 from './certificates/11.jpg'
-import { Award, Eye, X, ZoomIn } from 'lucide-react'
+import { Eye, X, ZoomIn } from 'lucide-react'
 
 const Certificate = () => {
   const [selectedCert, setSelectedCert] = useState(null)
@@ -31,102 +30,90 @@ const Certificate = () => {
   ]
 
   return (
-    <div className="relative min-h-screen w-full py-16 px-4 md:px-8 overflow-hidden">
-      
-      {/* Background ambient soft blur */}
-      <div className="absolute top-1/4 right-1/10 w-96 h-96 aura-glow-blue rounded-full filter blur-3xl opacity-30 pointer-events-none animate-pulse-glow" />
-      <div className="absolute bottom-1/4 left-1/10 w-96 h-96 aura-glow-mauve rounded-full filter blur-3xl opacity-30 pointer-events-none animate-pulse-glow animate-float-delayed" />
+    <div className="relative w-full py-14 md:py-20 px-4 md:px-8 overflow-hidden">
+      <div className="max-w-7xl mx-auto">
 
-      <div className="max-w-7xl mx-auto relative z-10">
-
-        {/* Page Header */}
-        <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-16 text-center md:text-left animate-fade-up">
-          <img
-            src={mui}
-            alt="Mui Graphic"
-            className="h-32 md:h-40 object-contain filter drop-shadow-[0_0_15px_rgba(180,190,254,0.35)] animate-float"
-          />
-          <div>
-            <h1 className="text-4xl md:text-6xl font-space font-extrabold tracking-tight text-white inline-flex items-center gap-4">
-              <Award className="text-sapphire w-10 h-10 md:w-14 md:h-14 animate-[pulse_3s_infinite]" />
-              My <span className="text-gradient">Certificates</span>
-            </h1>
-            <p className="text-muted font-mono text-xs md:text-sm mt-3 uppercase tracking-widest">
-              System.Query_Achievements()
-            </p>
+        {/* Header */}
+        <div className="mb-12 md:mb-16 animate-fade-up">
+          <span className="term-label mb-4">// SYSTEM.QUERY_ACHIEVEMENTS</span>
+          <h1 className="text-4xl md:text-6xl font-space font-black tracking-tight text-ink leading-none">
+            Certificates
+          </h1>
+          <div className="mt-5 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-elevated border border-line text-muted text-xs font-mono">
+            <span className="status-dot" />
+            {certificates.length} ACHIEVEMENTS UNLOCKED
           </div>
         </div>
 
-        {/* Gallery Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {certificates.map((cert) => (
+        {/* Gallery */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {certificates.map((cert, index) => (
             <div
               key={cert.id}
               onClick={() => setSelectedCert(cert.img)}
-              className="glass-card p-3 rounded-2xl cursor-pointer group relative overflow-hidden hover:shadow-[0_0_25px_rgba(180,190,254,0.22)] transition-all duration-300"
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && setSelectedCert(cert.img)}
+              style={{ animationDelay: `${index * 0.05}s` }}
+              className="glass-card p-3 cursor-pointer group relative overflow-hidden animate-fade-up focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/60"
             >
-              {/* Media wrapper */}
-              <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-canvas/40 border border-white/5">
-                <img 
-                  src={cert.img} 
-                  alt={cert.title} 
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              <div className="absolute top-5 left-5 z-20 w-8 h-8 rounded-md bg-canvas/80 backdrop-blur border border-line flex items-center justify-center text-accent font-mono text-xs font-bold">
+                {String(cert.id).padStart(2, '0')}
+              </div>
+
+              <div className="relative aspect-[4/3] rounded-lg overflow-hidden border border-line bg-elevated/40 flex items-center justify-center p-2">
+                <img
+                  src={cert.img}
+                  alt={cert.title}
+                  className="max-w-full max-h-full object-contain rounded transition-transform duration-500 group-hover:scale-[1.04]"
                   loading="lazy"
                 />
-                {/* Glow Overlay on Hover */}
-                <div className="absolute inset-0 bg-canvas/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-2">
-                  <div className="p-3 rounded-full bg-gradient-to-br from-blue to-lavender text-[#0d0d14] shadow-lg shadow-lavender/25 transform scale-75 group-hover:scale-100 transition-transform duration-300">
-                    <ZoomIn size={20} />
+                <div className="absolute inset-0 bg-canvas/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-3">
+                  <div className="p-3.5 rounded-full bg-accent text-white transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                    <ZoomIn size={22} />
                   </div>
+                  <span className="text-ink font-space font-semibold text-sm tracking-wide">View Certificate</span>
                 </div>
               </div>
 
-              {/* Sub-label */}
               <div className="mt-3 flex items-center justify-between px-1">
-                <span className="text-muted font-space font-semibold text-sm group-hover:text-lavender transition-colors duration-200">
+                <span className="text-muted font-space font-semibold text-sm group-hover:text-accent transition-colors duration-200">
                   {cert.title}
                 </span>
-                <span className="text-lavender/80 font-mono text-xs flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                  <Eye size={12} />
-                  View
-                </span>
+                <Eye size={15} className="text-faint group-hover:text-accent transition-colors duration-200" />
               </div>
             </div>
           ))}
         </div>
-
       </div>
 
-      {/* Full-Screen Lightbox Modal */}
+      {/* Lightbox */}
       {selectedCert && (
         <div
-          className="fixed inset-0 z-[100] bg-canvas/90 backdrop-blur-md flex items-center justify-center p-4 md:p-8 animate-[fade-in_0.25s_ease-out]"
+          className="fixed inset-0 z-[100] bg-canvas/95 backdrop-blur-md flex items-center justify-center p-4 md:p-8 animate-fade-in"
           onClick={() => setSelectedCert(null)}
+          role="dialog"
+          aria-modal="true"
         >
-          {/* Modal Content */}
           <div
-            className="relative max-w-5xl max-h-[85vh] w-full bg-surface/40 border border-white/10 rounded-2xl overflow-hidden shadow-2xl p-2 md:p-4 flex items-center justify-center"
+            className="relative max-w-5xl max-h-[85vh] w-full bg-surface border border-line rounded-xl overflow-hidden p-2 md:p-4 flex items-center justify-center"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Close Button */}
             <button
               onClick={() => setSelectedCert(null)}
-              className="absolute top-4 right-4 z-50 p-2.5 rounded-full bg-canvas/80 border border-white/10 text-muted hover:text-white hover:bg-white/10 transition-colors duration-250 shadow-md"
+              className="absolute top-4 right-4 z-50 p-2.5 rounded-full bg-canvas border border-line text-muted hover:text-ink hover:border-accent/50 transition-colors duration-200"
               aria-label="Close Preview"
             >
               <X size={20} />
             </button>
-
-            {/* Certificate Display */}
             <img
               src={selectedCert}
-              alt="Full Certificate Preview"
-              className="max-w-full max-h-[80vh] object-contain rounded-lg filter drop-shadow-[0_0_30px_rgba(180,190,254,0.28)]"
+              alt="Full certificate preview"
+              className="max-w-full max-h-[80vh] object-contain rounded-lg"
             />
           </div>
         </div>
       )}
-
     </div>
   )
 }

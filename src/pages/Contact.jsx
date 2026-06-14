@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import mui from '../components/img/mui1.png'
-import insta from "../components/img/insta.png"
-import { Mail, Phone, Send, Copy, Check, Terminal } from 'lucide-react'
+import insta from '../components/img/insta.png'
+import TerminalCard from '../components/TerminalCard'
+import { Mail, Phone, Send, Copy, Check } from 'lucide-react'
 
 const Github = ({ size = 20, ...props }) => (
   <svg
@@ -29,153 +30,115 @@ const Contact = () => {
   }
 
   const contacts = [
-    {
-      label: 'Email',
-      value: 't4tokito@gmail.com',
-      href: 'mailto:t4tokito@gmail.com',
-      icon: Mail,
-      color: 'hover:border-sapphire/30 text-sapphire bg-sapphire/5'
-    },
-    {
-      label: 'Phone',
-      value: '+91 99533 70380',
-      href: 'tel:+919953370380',
-      icon: Phone,
-      color: 'hover:border-mauve/30 text-mauve bg-mauve/5'
-    },
-    {
-      label: 'GitHub',
-      value: 'github.com/t4tokito',
-      href: 'https://github.com/t4tokito',
-      icon: Github,
-      color: 'hover:border-teal/30 text-teal bg-teal/5'
-    }
+    { label: 'Email', value: 't4tokito@gmail.com', href: 'mailto:t4tokito@gmail.com', icon: Mail },
+    { label: 'Phone', value: '+91 99533 70380', href: 'tel:+919953370380', icon: Phone },
+    { label: 'GitHub', value: 'github.com/t4tokito', href: 'https://github.com/t4tokito', icon: Github },
   ]
 
   return (
-    <div className="relative min-h-screen w-full py-16 px-4 md:px-8 overflow-hidden">
+    <div className="relative w-full py-14 md:py-20 px-4 md:px-8 overflow-hidden">
+      <div className="max-w-6xl mx-auto">
 
-      {/* Background ambient light */}
-      <div className="absolute top-1/3 left-1/10 w-96 h-96 aura-glow-blue rounded-full filter blur-3xl opacity-30 pointer-events-none animate-pulse-glow" />
-      <div className="absolute bottom-1/3 right-1/10 w-96 h-96 aura-glow-mauve rounded-full filter blur-3xl opacity-30 pointer-events-none animate-pulse-glow animate-float-delayed" />
-
-      <div className="max-w-6xl mx-auto relative z-10">
-
-        {/* Title Banner */}
-        <div className="text-center mb-16 animate-fade-up">
-          <h1 className="text-4xl md:text-6xl font-space font-extrabold tracking-tight text-white inline-flex items-center gap-4">
-            <Send className="text-sapphire w-10 h-10 md:w-14 md:h-14 animate-[pulse_2s_infinite]" />
-            Contact <span className="text-gradient">Me</span>
+        {/* Header */}
+        <div className="mb-12 md:mb-16 animate-fade-up">
+          <span className="term-label mb-4">// SYSTEM.OPEN_CONNECTION_CHANNEL</span>
+          <h1 className="text-4xl md:text-6xl font-space font-black tracking-tight text-ink leading-none">
+            Get In <span className="text-accent">Touch</span>
           </h1>
-          <p className="text-muted font-mono text-xs md:text-sm mt-3 uppercase tracking-widest">
-            System.Open_Connection_Channel()
-          </p>
         </div>
 
-        {/* Dashboard Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
 
-          {/* Left Column: Visual Profile Hud (Cols 1-5) */}
-          <div className="lg:col-span-5 flex flex-col justify-center items-center animate-fade-up delay-1">
-            <div className="glass-card p-6 rounded-3xl w-full flex flex-col items-center justify-center gap-6 relative overflow-hidden group">
+          {/* Left — profile HUD (Cols 1-5) */}
+          <div className="lg:col-span-5 animate-fade-up delay-1">
+            <div className="glass-card p-6 h-full flex flex-col items-center justify-center gap-6 relative overflow-hidden group">
+              <span className="absolute top-3 left-3 w-7 h-7 border-t border-l border-accent/50" />
+              <span className="absolute top-3 right-3 w-7 h-7 border-t border-r border-accent/50" />
+              <span className="absolute bottom-3 left-3 w-7 h-7 border-b border-l border-accent/50" />
+              <span className="absolute bottom-3 right-3 w-7 h-7 border-b border-r border-accent/50" />
 
-              {/* Soft border HUD lines */}
-              <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-lavender/70" />
-              <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-lavender/70" />
-              <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-lavender/70" />
-              <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-lavender/70" />
-
-              {/* Profile Image & Animated Border Group */}
-              <div className="relative w-52 h-52 md:w-60 md:h-60 flex items-center justify-center">
-                {/* Avatar frame */}
-                <div className="absolute inset-0 rounded-full p-1 bg-gradient-to-tr from-blue via-transparent to-mauve animate-[spin_12s_linear_infinite]">
+              <div className="relative w-48 h-48 md:w-56 md:h-56 flex items-center justify-center">
+                <div className="absolute inset-0 rounded-full p-[2px] bg-accent">
                   <div className="w-full h-full rounded-full bg-canvas" />
                 </div>
-
-                {/* Real Image sitting inside (absolute, centered, matching the spinning frame) */}
                 <img
                   src={mui}
-                  alt="Muichiro Tokito Profile Logo"
-                  className="absolute w-[88%] h-[88%] rounded-full object-cover border-4 border-surface shadow-2xl filter drop-shadow-[0_0_15px_rgba(180,190,254,0.35)] transition-transform duration-500 group-hover:scale-105"
+                  alt="Vikas Maurya"
+                  className="absolute w-[88%] h-[88%] rounded-full object-cover border-4 border-surface transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
 
-              <div className="text-center mt-2 font-space">
-                <h3 className="text-xl font-bold text-white">Vikas Mourya</h3>
-                <p className="text-sapphire font-mono text-xs mt-1">Available for Inquiries</p>
+              <div className="text-center font-space">
+                <h3 className="text-xl font-bold text-ink">Vikas Maurya</h3>
+                <p className="text-accent font-mono text-xs mt-1 flex items-center justify-center gap-2">
+                  <span className="status-dot" /> Available for inquiries
+                </p>
               </div>
 
-              {/* Instagram tag */}
               <a
                 href="https://www.instagram.com/t4tokito/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 px-6 py-2.5 rounded-full bg-surface border border-white/5 hover:border-pink/40 transition-all duration-300 group/insta mt-2"
+                className="flex items-center gap-3 px-5 py-2.5 rounded-lg bg-elevated border border-line hover:border-accent/50 transition-all duration-300 group/insta"
               >
-                <span className="text-muted font-mono text-sm group-hover/insta:text-white">@t4tokito</span>
-                <img src={insta} alt="Instagram" className="h-5 w-5 object-contain transform group-hover/insta:scale-110 transition-transform duration-200" />
+                <span className="text-muted font-mono text-sm group-hover/insta:text-ink transition-colors">@t4tokito</span>
+                <img src={insta} alt="" className="h-5 w-5 object-contain group-hover/insta:scale-110 transition-transform duration-200" />
               </a>
             </div>
           </div>
 
-          {/* Right Column: Connection Cards (Cols 6-12) */}
-          <div className="lg:col-span-7 flex flex-col justify-between gap-6 animate-fade-up delay-2">
+          {/* Right — channels (Cols 6-12) */}
+          <div className="lg:col-span-7 flex flex-col gap-5 animate-fade-up delay-2">
 
-            {/* Terminal status box */}
-            <div className="glass-card p-6 rounded-3xl bg-canvas/60 font-mono text-sm text-lavender flex flex-col gap-2 relative">
-              <div className="flex items-center gap-2 mb-2 pb-2 border-b border-white/5 text-faint text-xs">
-                <Terminal size={14} />
-                <span>TERMINAL_LOG.EXE</span>
-              </div>
-              <p className="text-white font-semibold flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-green animate-ping" />
-                Channel status: Active and listening.
+            {/* terminal status */}
+            <TerminalCard file="connection_log.exe" bodyClassName="font-mono text-sm">
+              <p className="text-faint mb-2"><span className="text-accent">$</span> ./listen --channel open</p>
+              <p className="text-ink font-semibold flex items-center gap-2">
+                <span className="status-dot" /> Channel status: active &amp; listening
               </p>
-              <p className="text-muted text-xs leading-relaxed">
-                Click copy icons to save details directly to your clipboard, or click a card to launch your mail application, call protocol, or browser target.
+              <p className="text-muted text-xs leading-relaxed mt-2">
+                Copy any detail to your clipboard, or tap a card to launch mail, call, or browser.
               </p>
-            </div>
+            </TerminalCard>
 
-            {/* Dynamic Contacts Stack */}
+            {/* channels */}
             <div className="flex flex-col gap-4">
-              {contacts.map((contact, index) => {
+              {contacts.map((contact) => {
                 const Icon = contact.icon
                 const isCopied = copiedText === contact.label
                 return (
                   <div
-                    key={index}
-                    className={`glass-card p-5 rounded-3xl border flex items-center justify-between gap-4 transition-all duration-300 group ${contact.color}`}
+                    key={contact.label}
+                    className="glass-card p-4 md:p-5 flex items-center justify-between gap-4 group"
                   >
                     <a
                       href={contact.href}
                       target={contact.label === 'GitHub' ? '_blank' : '_self'}
                       rel="noopener noreferrer"
-                      className="flex items-center gap-4 flex-1"
+                      className="flex items-center gap-4 flex-1 min-w-0"
                     >
-                      <div className="p-3 rounded-2xl bg-canvas/40 border border-white/5 text-inherit group-hover:scale-105 transition-transform duration-200">
-                        <Icon size={24} />
+                      <div className="p-3 rounded-xl bg-elevated border border-line text-accent group-hover:scale-105 transition-transform duration-200 shrink-0">
+                        <Icon size={22} />
                       </div>
                       <div className="overflow-hidden">
-                        <span className="text-muted text-xs font-mono block mb-1">{contact.label}</span>
-                        <span className="text-white font-space font-semibold text-sm md:text-lg block truncate">{contact.value}</span>
+                        <span className="text-faint text-[10px] font-mono uppercase tracking-widest block mb-0.5">{contact.label}</span>
+                        <span className="text-ink font-space font-semibold text-sm md:text-base block truncate">{contact.value}</span>
                       </div>
                     </a>
 
-                    {/* Copy Button */}
                     <button
                       onClick={() => handleCopy(contact.value, contact.label)}
-                      className="p-3.5 rounded-2xl bg-canvas/40 border border-white/5 text-muted hover:text-white hover:bg-white/5 transition-all duration-200 relative group/btn"
+                      className="p-3 rounded-xl bg-elevated border border-line text-muted hover:text-ink hover:border-accent/50 transition-all duration-200 relative shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/60"
                       title={`Copy ${contact.label}`}
+                      aria-label={`Copy ${contact.label}`}
                     >
                       {isCopied ? (
-                        <Check size={16} className="text-green animate-[scale-in_0.2s_ease-out]" />
+                        <Check size={16} className="text-accent" />
                       ) : (
-                        <Copy size={16} className="group-hover/btn:scale-105 transition-transform duration-200" />
+                        <Copy size={16} />
                       )}
-
-                      {/* Copied Tooltip */}
                       {isCopied && (
-                        <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-green text-[#0d0d14] font-mono font-bold text-[10px] px-2 py-1 rounded shadow-lg animate-bounce">
+                        <span className="absolute -top-9 left-1/2 -translate-x-1/2 bg-accent text-white font-mono font-bold text-[10px] px-2 py-1 rounded">
                           Copied!
                         </span>
                       )}
@@ -184,11 +147,8 @@ const Contact = () => {
                 )
               })}
             </div>
-
           </div>
-
         </div>
-
       </div>
     </div>
   )

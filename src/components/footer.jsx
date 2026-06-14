@@ -19,104 +19,94 @@ const Github = ({ size = 20, ...props }) => (
 )
 
 const Footer = () => {
-  const skills = ['HTML5', 'CSS3', 'JavaScript', 'React.js', 'Tailwind CSS']
-  
+  const skills = ['HTML5', 'CSS3', 'JavaScript', 'React.js', 'React Native', 'Tailwind CSS', 'NativeWind']
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="w-full bg-panel/80 backdrop-blur-md border-t border-white/5 mt-20 py-12 px-6 md:px-12 relative overflow-hidden">
+    <footer className="relative z-10 w-full bg-panel border-t border-line mt-16 md:mt-24 py-12 px-6 md:px-12">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-10">
 
-      {/* Soft background glow */}
-      <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-80 h-80 aura-glow-blue rounded-full filter blur-3xl opacity-30 pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 relative z-10">
-        
-        {/* Bio / Info Column (Cols 1-5) */}
+        {/* Bio */}
         <div className="md:col-span-5 flex flex-col gap-4">
-          <Link to="/" className="flex items-center gap-2 group font-space">
-            <div className="w-6 h-6 rounded bg-gradient-to-br from-blue via-lavender to-mauve flex items-center justify-center shadow-lg group-hover:rotate-12 transition-all duration-300">
-              <span className="text-[#0d0d14] font-extrabold text-xs">V</span>
+          <Link to="/" className="flex items-center gap-2.5 group font-space">
+            <div className="w-7 h-7 rounded-md bg-accent flex items-center justify-center group-hover:shadow-[0_0_16px_-2px_rgba(139,92,246,0.7)] transition-shadow">
+              <span className="text-white font-extrabold text-xs">V</span>
             </div>
-            <span className="text-lg font-bold tracking-wider text-white">
-              Vikas<span className="text-mauve">.dev</span>
+            <span className="text-base font-bold tracking-tight text-ink">
+              vikas<span className="text-accent">.dev</span>
             </span>
           </Link>
 
           <p className="text-muted text-sm leading-relaxed max-w-sm">
-            I am always open to exploring new engineering opportunities, collaborations, and frontend challenges. Reach out via email or socials!
+            Open to new engineering opportunities, collaborations, and frontend challenges.
+            Reach out via email or socials.
           </p>
 
-          <div className="flex items-center gap-4 mt-2">
-            <a 
-              href="https://github.com/vikasmourya10" 
-              target="_blank" 
+          <div className="flex items-center gap-3 mt-1">
+            <a
+              href="https://github.com/vikasmourya10"
+              target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-xl bg-white/5 border border-white/5 text-muted hover:text-white hover:bg-white/10 hover:border-lavender/25 transition-all duration-300"
+              aria-label="GitHub"
+              className="p-2.5 rounded-lg bg-elevated border border-line text-muted hover:text-ink hover:border-accent/50 transition-all duration-300"
             >
               <Github size={18} />
             </a>
             <a
               href="mailto:t4tokito@gmail.com"
-              className="p-2 rounded-xl bg-white/5 border border-white/5 text-muted hover:text-white hover:bg-white/10 hover:border-lavender/25 transition-all duration-300"
+              aria-label="Email"
+              className="p-2.5 rounded-lg bg-elevated border border-line text-muted hover:text-ink hover:border-accent/50 transition-all duration-300"
             >
               <Send size={18} />
             </a>
           </div>
         </div>
 
-        {/* Tech Stack Chips (Cols 6-8) */}
-        <div className="md:col-span-3 flex flex-col gap-4">
-          <h4 className="font-space font-bold text-white text-sm uppercase tracking-wider border-b border-white/5 pb-2">
-            Core Tech
-          </h4>
-          <ul className="flex flex-col gap-2">
+        {/* Tech */}
+        <div className="md:col-span-3 flex flex-col gap-3">
+          <h4 className="term-label">// CORE_TECH</h4>
+          <ul className="flex flex-col gap-2 mt-1">
             {skills.map((skill) => (
-              <li key={skill} className="text-muted text-sm flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue to-mauve" />
+              <li key={skill} className="text-muted text-sm flex items-center gap-2.5">
+                <span className="w-1 h-1 rounded-full bg-accent" />
                 {skill}
               </li>
             ))}
           </ul>
         </div>
 
-        {/* Navigation Map (Cols 9-12) */}
-        <div className="md:col-span-4 flex flex-col gap-4">
-          <h4 className="font-space font-bold text-white text-sm uppercase tracking-wider border-b border-white/5 pb-2">
-            Explore
-          </h4>
-          <div className="grid grid-cols-2 gap-2">
+        {/* Nav */}
+        <div className="md:col-span-4 flex flex-col gap-3">
+          <h4 className="term-label">// EXPLORE</h4>
+          <div className="grid grid-cols-2 gap-2 mt-1">
             {[
               { label: 'Home', path: '/' },
               { label: 'About', path: '/about' },
               { label: 'Projects', path: '/projects' },
               { label: 'Certificates', path: '/certificates' },
-              { label: 'Contact', path: '/contact' }
+              { label: 'Contact', path: '/contact' },
             ].map((link) => (
-              <Link 
-                key={link.path} 
+              <Link
+                key={link.path}
                 to={link.path}
-                className="text-muted hover:text-lavender text-sm flex items-center gap-1 group transition-colors duration-200"
+                className="text-muted hover:text-accent text-sm flex items-center gap-1 group transition-colors duration-200"
               >
                 <span>{link.label}</span>
-                <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-lavender" />
+                <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-accent" />
               </Link>
             ))}
           </div>
         </div>
-
       </div>
 
-      {/* Copyright Line */}
-      <div className="max-w-7xl mx-auto border-t border-white/5 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-faint font-mono relative z-10">
-        <div>
-          &copy; {currentYear} Vikas Mourya. All rights reserved.
-        </div>
-        <div className="flex items-center gap-1">
+      {/* Copyright */}
+      <div className="max-w-7xl mx-auto border-t border-line mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-faint font-mono">
+        <div>&copy; {currentYear} Vikas Maurya — all rights reserved.</div>
+        <div className="flex items-center gap-1.5">
+          <span className="status-dot" />
           <span>Crafted in Delhi, India</span>
-          <span className="text-mauve">✦</span>
         </div>
       </div>
-
     </footer>
   )
 }
