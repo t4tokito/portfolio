@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import tokitogptLogo from '../components/img/tokitogpt-logo.svg'
-import { ExternalLink, Cpu, ArrowRight } from 'lucide-react'
+import giyuLogo from '../components/img/giyu-ai-logo.svg'
+import giyu1 from './screenshots/giyu_ai/preview1.jpeg'
+import giyu2 from './screenshots/giyu_ai/preview2.jpeg'
+import giyu3 from './screenshots/giyu_ai/preview3.jpeg'
+import { ExternalLink, Cpu, ArrowRight, Download, Images, X, ChevronLeft, ChevronRight } from 'lucide-react'
 
 const Github = ({ size = 20, ...props }) => (
   <svg
@@ -19,15 +23,26 @@ const Github = ({ size = 20, ...props }) => (
 )
 
 const Projects = () => {
+  const [lightbox, setLightbox] = useState({ open: false, images: [], index: 0 })
   const projectsList = [
     {
       title: 'TokitoGPT',
-      subtitle: 'High-speed AI chatbot',
+      subtitle: 'Demon Slayer Tokito chatbot',
       desc: 'An interactive conversational interface with responsive layouts, markdown parsing, context streams, and real-time AI prompt processing.',
       preview: tokitogptLogo,
       tags: ['React.js', 'Tailwind CSS', 'Vite', 'AI Integration'],
       github: 'https://github.com/vikasmourya10/chatbot',
       live: 'https://tokitogpt.netlify.app/',
+    },
+    {
+      title: 'Giyu AI',
+      subtitle: 'Demon Slayer Giyu chatbot',
+      desc: 'A React Native chatbot themed around Giyu Tomioka from Demon Slayer. It detects emotions in replies and responds with contextual Giyu stickers — bringing the Water Hashira to life in conversation.',
+      preview: giyuLogo,
+      screenshots: [giyu1, giyu2, giyu3],
+      tags: ['React Native', 'Expo', 'AI Integration', 'NativeWind', 'sticker with replies'],
+      github: 'https://github.com/t4tokito/Giyu-AI',
+      download: 'https://expo.dev/accounts/t4tokito/projects/Silly-Giyu/builds/7354411a-62e6-477c-999a-4303beb0b2c2',
     },
   ]
 
@@ -98,21 +113,111 @@ const Projects = () => {
                   >
                     <Github size={15} /> Source
                   </a>
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 btn-tactical btn-primary group"
-                  >
-                    <ExternalLink size={15} /> Live
-                    <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
-                  </a>
+                  {project.screenshots && (
+                    <button
+                      onClick={() => setLightbox({ open: true, images: project.screenshots, index: 0 })}
+                      className="flex-1 btn-tactical btn-ghost"
+                    >
+                      <Images size={15} /> Screenshots
+                    </button>
+                  )}
+                  {project.live && (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 btn-tactical btn-primary group"
+                    >
+                      <ExternalLink size={15} /> Live
+                      <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
+                    </a>
+                  )}
+                  {project.download && (
+                    <a
+                      href={project.download}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 btn-tactical btn-primary group"
+                    >
+                      <Download size={15} /> Download
+                      <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
           ))}
         </div>
       </div>
+
+      {/* Screenshots Lightbox */}
+      {lightbox.open && (
+        <div
+          className="fixed inset-0 z-[100] bg-canvas/95 backdrop-blur-md flex items-center justify-center p-4 md:p-8 animate-fade-in"
+          onClick={() => setLightbox({ open: false, images: [], index: 0 })}
+          role="dialog"
+          aria-modal="true"
+        >
+          <div
+            className="relative max-w-4xl w-full flex flex-col items-center gap-4"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setLightbox({ open: false, images: [], index: 0 })}
+              className="absolute -top-2 -right-2 z-50 p-2.5 rounded-full bg-elevated border border-line text-muted hover:text-ink hover:border-accent/50 transition-colors duration-200"
+              aria-label="Close"
+            >
+              <X size={20} />
+            </button>
+
+            <div className="relative w-full bg-surface border border-line rounded-xl overflow-hidden flex items-center justify-center">
+              <img
+                src={lightbox.images[lightbox.index]}
+                alt={`Screenshot ${lightbox.index + 1}`}
+                className="max-w-full max-h-[75vh] object-contain"
+              />
+
+              {lightbox.images.length > 1 && (
+                <>
+                  <button
+                    onClick={() => setLightbox(prev => ({
+                      ...prev,
+                      index: prev.index > 0 ? prev.index - 1 : prev.images.length - 1
+                    }))}
+                    className="absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-canvas/80 backdrop-blur border border-line text-muted hover:text-ink hover:border-accent/50 transition-all duration-200"
+                    aria-label="Previous"
+                  >
+                    <ChevronLeft size={20} />
+                  </button>
+                  <button
+                    onClick={() => setLightbox(prev => ({
+                      ...prev,
+                      index: prev.index < prev.images.length - 1 ? prev.index + 1 : 0
+                    }))}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-canvas/80 backdrop-blur border border-line text-muted hover:text-ink hover:border-accent/50 transition-all duration-200"
+                    aria-label="Next"
+                  >
+                    <ChevronRight size={20} />
+                  </button>
+                </>
+              )}
+            </div>
+
+            <div className="flex items-center gap-2">
+              {lightbox.images.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setLightbox(prev => ({ ...prev, index: i }))}
+                  className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                    i === lightbox.index ? 'bg-accent w-5' : 'bg-line hover:bg-faint'
+                  }`}
+                  aria-label={`Go to screenshot ${i + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

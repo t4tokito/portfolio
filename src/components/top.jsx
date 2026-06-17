@@ -15,13 +15,13 @@ import {
 
 const Top = () => {
   const skills = [
-    { name: 'HTML5', img: html, level: 88 },
-    { name: 'CSS3', img: css, level: 85 },
-    { name: 'JavaScript', img: js, level: 80 },
-    { name: 'React.js', img: react, level: 82 },
-    { name: 'React Native', img: null, icon: Code2, level: 75 },
-    { name: 'Tailwind CSS', img: tailwind, level: 90 },
-    { name: 'NativeWind', img: null, icon: Code2, level: 72 },
+    { name: 'HTML5', img: html },
+    { name: 'CSS3', img: css },
+    { name: 'JavaScript', img: js },
+    { name: 'React.js', img: react },
+    { name: 'React Native', img: null, icon: Code2 },
+    { name: 'Tailwind CSS', img: tailwind },
+    { name: 'NativeWind', img: null, icon: Code2 },
   ]
 
   return (
@@ -142,33 +142,25 @@ const Top = () => {
             <div className="glass-card p-6 md:p-7">
               <span className="term-label mb-5"><Code2 size={13} /> // CORE.SKILLS_STACK</span>
 
-              <div className="flex flex-col gap-3.5">
-                {skills.map((skill) => (
-                  <div key={skill.name} className="group">
-                    <div className="flex items-center justify-between mb-1.5">
-                      <div className="flex items-center gap-2.5">
-                        <div className="w-7 h-7 rounded-md bg-elevated p-1.5 flex items-center justify-center border border-line">
-                          {(() => {
-                            const SkillIcon = skill.icon
-                            return skill.img ? (
-                              <img src={skill.img} alt="" className="w-full h-full object-contain" />
-                            ) : (
-                              <SkillIcon size={14} className="text-accent" />
-                            )
-                          })()}
-                        </div>
-                        <span className="font-space font-semibold text-ink text-sm">{skill.name}</span>
+              <div className="grid grid-cols-2 gap-3">
+                {skills.map((skill) => {
+                  const SkillIcon = skill.icon
+                  return (
+                    <div
+                      key={skill.name}
+                      className="group flex items-center gap-3 p-3 rounded-xl bg-elevated/60 border border-line hover:border-accent/50 hover:bg-accent/5 transition-all duration-300 cursor-default"
+                    >
+                      <div className="w-9 h-9 rounded-lg bg-canvas border border-line flex items-center justify-center shrink-0 group-hover:border-accent/40 transition-colors duration-300">
+                        {skill.img ? (
+                          <img src={skill.img} alt="" className="w-5 h-5 object-contain" />
+                        ) : (
+                          <SkillIcon size={16} className="text-accent" />
+                        )}
                       </div>
-                      <span className="font-mono text-xs text-faint">{skill.level}%</span>
+                      <span className="font-space font-semibold text-ink text-sm leading-tight">{skill.name}</span>
                     </div>
-                    <div className="h-1.5 w-full bg-elevated rounded-full overflow-hidden border border-line/50">
-                      <div
-                        className="h-full bg-accent rounded-full transition-all duration-700"
-                        style={{ width: `${skill.level}%` }}
-                      />
-                    </div>
-                  </div>
-                ))}
+                  )
+                })}
               </div>
 
               <Link
