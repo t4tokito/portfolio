@@ -2,7 +2,7 @@
 
 A personal portfolio built with React, Tailwind CSS v4, and Vite. Dark terminal aesthetic with matrix-style canvas background, glass-morphism cards, and a copper accent palette.
 
-**Live:** [vikas.dev](https://your-domain.netlify.app)
+**Live:** [tokito-dev.netlify.app](https://tokito-dev.netlify.app)
 
 ## Tech Stack
 

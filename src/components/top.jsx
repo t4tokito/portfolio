@@ -47,7 +47,7 @@ const Top = () => {
             </h1>
 
             <p className="text-muted text-base md:text-lg leading-relaxed max-w-xl">
-              I'm <span className="text-ink font-semibold">Vikas</span> — a frontend developer crafting
+              I'm <span className="text-ink font-semibold">Vikas Maurya</span> — aka <span className="text-accent font-semibold">t4tokito</span> (Tokito Dev) — a frontend developer crafting
               fast, pixel-perfect interfaces with <span className="text-accent font-medium">React</span>,
               <span className="text-accent font-medium"> React Native</span>, and
               <span className="text-accent font-medium"> Tailwind CSS</span>. Minimal by intent, premium by execution.
@@ -84,8 +84,8 @@ const Top = () => {
             <TerminalCard file="developer_bio.sh" bodyClassName="font-mono text-[13px] leading-relaxed space-y-2.5">
               <p className="text-faint"><span className="text-accent">$</span> whoami</p>
               <p className="text-ink flex items-center gap-3">
-                <img src={tokito} alt="" className="h-8 w-8 object-contain" />
-                Vikas — Frontend Engineer
+                <img src={tokito} alt="t4tokito logo" className="h-8 w-8 object-contain" />
+                Vikas (t4tokito) — Frontend Engineer
               </p>
               <p className="text-faint"><span className="text-accent">$</span> cat strengths.json</p>
               <p className="text-muted">

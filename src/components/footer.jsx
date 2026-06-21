@@ -33,7 +33,7 @@ const Footer = () => {
               <span className="text-white font-extrabold text-xs">V</span>
             </div>
             <span className="text-base font-bold tracking-tight text-ink">
-              vikas<span className="text-accent">.dev</span>
+              tokito<span className="text-accent">.dev</span>
             </span>
           </Link>
 
@@ -101,7 +101,7 @@ const Footer = () => {
 
       {/* Copyright */}
       <div className="max-w-7xl mx-auto border-t border-line mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-faint font-mono">
-        <div>&copy; {currentYear} Vikas Maurya — all rights reserved.</div>
+        <div>&copy; {currentYear} Vikas Maurya (t4tokito · Tokito Dev) — all rights reserved.</div>
         <div className="flex items-center gap-1.5">
           <span className="status-dot" />
           <span>Crafted in Delhi, India</span>

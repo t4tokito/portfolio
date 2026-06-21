@@ -27,10 +27,10 @@ const Navbar = () => {
           onClick={() => setMenuOpen(false)}
         >
           <div className="w-9 h-9 rounded-lg bg-accent flex items-center justify-center group-hover:shadow-[0_0_20px_-2px_rgba(139,92,246,0.7)] transition-shadow duration-300">
-            <span className="text-white font-extrabold text-lg">V</span>
+            <span className="text-white font-extrabold text-lg">T</span>
           </div>
           <span className="text-lg font-bold tracking-tight text-ink">
-            vikas<span className="text-accent">.dev</span>
+            tokito<span className="text-accent">.dev</span>
           </span>
         </Link>
 
@@ -43,11 +43,10 @@ const Navbar = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`relative flex items-center gap-2 px-4 py-2 rounded-lg text-[13px] font-semibold tracking-wide transition-all duration-300 ${
-                  active
+                className={`relative flex items-center gap-2 px-4 py-2 rounded-lg text-[13px] font-semibold tracking-wide transition-all duration-300 ${active
                     ? 'text-white bg-accent/15 border border-accent/40'
                     : 'text-muted hover:text-ink hover:bg-white/[0.04] border border-transparent'
-                }`}
+                  }`}
               >
                 <Icon size={15} className={active ? 'text-accent' : 'text-faint'} />
                 {link.name}
@@ -69,9 +68,8 @@ const Navbar = () => {
 
       {/* Mobile Drawer Menu */}
       <div
-        className={`md:hidden absolute top-full left-0 w-full bg-canvas/95 backdrop-blur-2xl border-b border-line overflow-hidden transition-all duration-300 ease-in-out ${
-          menuOpen ? 'max-h-[500px] opacity-100 py-6 px-6' : 'max-h-0 opacity-0 py-0 px-6 pointer-events-none'
-        }`}
+        className={`md:hidden absolute top-full left-0 w-full bg-canvas/95 backdrop-blur-2xl border-b border-line overflow-hidden transition-all duration-300 ease-in-out ${menuOpen ? 'max-h-[500px] opacity-100 py-6 px-6' : 'max-h-0 opacity-0 py-0 px-6 pointer-events-none'
+          }`}
       >
         <div className="flex flex-col gap-2">
           <span className="term-label mb-2">// NAVIGATION</span>
@@ -83,11 +81,10 @@ const Navbar = () => {
                 key={link.path}
                 to={link.path}
                 onClick={() => setMenuOpen(false)}
-                className={`flex items-center gap-4 p-3.5 rounded-xl font-semibold transition-all duration-300 ${
-                  active
+                className={`flex items-center gap-4 p-3.5 rounded-xl font-semibold transition-all duration-300 ${active
                     ? 'text-white bg-accent/15 border border-accent/40'
                     : 'text-muted hover:text-ink hover:bg-white/[0.04] border border-transparent'
-                }`}
+                  }`}
               >
                 <Icon size={19} className={active ? 'text-accent' : 'text-faint'} />
                 <span className="text-base">{link.name}</span>
