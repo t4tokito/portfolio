@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 440" fill="none">
+  <defs>
+    <linearGradient id="yt-bg" x1="0" y1="0" x2="600" y2="440" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0a0a0a"/>
+      <stop offset="1" stop-color="#050505"/>
+    </linearGradient>
+    <linearGradient id="yt-accent" x1="180" y1="120" x2="420" y2="320" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ef4444"/>
+      <stop offset="0.55" stop-color="#f87171"/>
+      <stop offset="1" stop-color="#fca5a5"/>
+    </linearGradient>
+    <radialGradient id="yt-glow" cx="0.5" cy="0.42" r="0.5">
+      <stop offset="0" stop-color="#ef4444" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#ef4444" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- background -->
+  <rect width="600" height="440" fill="url(#yt-bg)"/>
+
+  <!-- subtle grid -->
+  <g stroke="#ef4444" stroke-opacity="0.04" stroke-width="1">
+    <path d="M0 80 H600 M0 160 H600 M0 240 H600 M0 320 H600 M0 400 H600"/>
+    <path d="M80 0 V440 M160 0 V440 M240 0 V440 M320 0 V440 M400 0 V440 M480 0 V440"/>
+  </g>
+
+  <!-- ambient glow -->
+  <circle cx="300" cy="178" r="170" fill="url(#yt-glow)"/>
+
+  <!-- main icon: play button + notepad -->
+  <g transform="translate(300 168)">
+    <!-- outer dashed ring -->
+    <circle r="92" fill="none" stroke="url(#yt-accent)" stroke-opacity="0.25" stroke-width="2" stroke-dasharray="6 10"/>
+
+    <!-- notepad body -->
+    <rect x="-48" y="-52" width="96" height="104" rx="8" fill="#0c0c0e" stroke="url(#yt-accent)" stroke-width="3"/>
+
+    <!-- notepad spiral holes -->
+    <circle cx="-36" cy="-36" r="4" fill="#0c0c0e" stroke="url(#yt-accent)" stroke-width="2"/>
+    <circle cx="-36" cy="-18" r="4" fill="#0c0c0e" stroke="url(#yt-accent)" stroke-width="2"/>
+    <circle cx="-36" cy="0" r="4" fill="#0c0c0e" stroke="url(#yt-accent)" stroke-width="2"/>
+    <circle cx="-36" cy="18" r="4" fill="#0c0c0e" stroke="url(#yt-accent)" stroke-width="2"/>
+    <circle cx="-36" cy="36" r="4" fill="#0c0c0e" stroke="url(#yt-accent)" stroke-width="2"/>
+
+    <!-- play triangle overlay -->
+    <g transform="translate(8 -4)">
+      <path d="M-14 -18 L18 0 L-14 18 Z" fill="url(#yt-accent)"/>
+    </g>
+
+    <!-- text lines on notepad -->
+    <rect x="-18" y="-36" width="50" height="3" rx="1.5" fill="url(#yt-accent)" opacity="0.4"/>
+    <rect x="-18" y="-24" width="40" height="3" rx="1.5" fill="url(#yt-accent)" opacity="0.3"/>
+    <rect x="-18" y="-12" width="46" height="3" rx="1.5" fill="url(#yt-accent)" opacity="0.35"/>
+
+    <!-- small decorative dots -->
+    <circle cx="54" cy="-42" r="4" fill="#ef4444" opacity="0.5"/>
+    <circle cx="-54" cy="44" r="3" fill="#f87171" opacity="0.4"/>
+  </g>
+
+  <!-- wordmark -->
+  <text x="300" y="340" text-anchor="middle"
+        font-family="'Space Grotesk', 'Segoe UI', sans-serif" font-size="48" font-weight="700"
+        fill="#f4f4f5" letter-spacing="1">YT<tspan fill="url(#yt-accent)">Notes</tspan></text>
+
+  <!-- tagline -->
+  <text x="300" y="378" text-anchor="middle"
+        font-family="'Space Grotesk', monospace" font-size="16" font-weight="500"
+        fill="#a1a1aa" letter-spacing="3">YOUTUBE&#160;&#160;LEARNING&#160;&#160;APP</text>
+
+  <!-- corner brackets -->
+  <g stroke="#ef4444" stroke-width="1.5" opacity="0.35">
+    <line x1="20" y1="20" x2="40" y2="20"/><line x1="20" y1="20" x2="20" y2="40"/>
+    <line x1="580" y1="20" x2="560" y2="20"/><line x1="580" y1="20" x2="580" y2="40"/>
+    <line x1="20" y1="420" x2="40" y2="420"/><line x1="20" y1="420" x2="20" y2="400"/>
+    <line x1="580" y1="420" x2="560" y2="420"/><line x1="580" y1="420" x2="580" y2="400"/>
+  </g>
+</svg>

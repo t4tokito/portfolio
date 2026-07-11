@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import tokitogptLogo from '../components/img/tokitogpt-logo.svg'
 import giyuLogo from '../components/img/giyu-ai-logo.svg'
+import postGenLogo from '../components/img/post-generator-logo.svg'
+import ytNotesLogo from '../components/img/yt-notes-logo.svg'
+import instaAutoLogo from '../components/img/insta-auto-logo.svg'
 import giyu1 from './screenshots/giyu_ai/preview1.jpeg'
 import giyu2 from './screenshots/giyu_ai/preview2.jpeg'
 import giyu3 from './screenshots/giyu_ai/preview3.jpeg'
@@ -25,6 +28,30 @@ const Github = ({ size = 20, ...props }) => (
 const Projects = () => {
   const [lightbox, setLightbox] = useState({ open: false, images: [], index: 0 })
   const projectsList = [
+    {
+      title: 'Post Generator',
+      subtitle: 'AI-powered content creator',
+      desc: 'Generates relatable text posts with professional blur effect images. Uses OpenRouter API for AI text generation and Sharp for creating 1080x1080 images with multiple style themes.',
+      preview: postGenLogo,
+      tags: ['Node.js', 'Sharp', 'OpenRouter API', 'AI Integration'],
+      github: 'https://github.com/t4tokito/Post-Generator',
+    },
+    {
+      title: 'YT Notes Maker',
+      subtitle: 'YouTube learning companion',
+      desc: 'A comprehensive learning app that generates notes from YouTube videos, creates quizzes, provides topic explanations, and enables social learning with friends through chat and group features.',
+      preview: ytNotesLogo,
+      tags: ['TypeScript', 'React Native', 'Expo', 'Social Features'],
+      github: 'https://github.com/t4tokito/yt-notes-maker',
+    },
+    {
+      title: 'Insta Auto Post',
+      subtitle: 'Instagram automation tool',
+      desc: 'AI-powered Instagram auto-poster that generates relatable quotes with professional blur effect images and posts them automatically. Combines Node.js image processing with Python Instagram API.',
+      preview: instaAutoLogo,
+      tags: ['Python', 'Node.js', 'OpenRouter API', 'Instagram API'],
+      github: 'https://github.com/t4tokito/insta-auto-post',
+    },
     {
       title: 'TokitoGPT',
       subtitle: 'Demon Slayer Tokito chatbot',
