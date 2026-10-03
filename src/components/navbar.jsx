@@ -1,99 +1,125 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X, Home, User, FolderGit2, Award, Mail } from 'lucide-react'
+import { Menu, X, ArrowUpRight } from 'lucide-react'
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  const closeMenu = () => setMenuOpen(false)
+
   const navLinks = [
-    { name: 'Home', path: '/', icon: Home },
-    { name: 'About', path: '/about', icon: User },
-    { name: 'Projects', path: '/projects', icon: FolderGit2 },
-    { name: 'Certificates', path: '/certificates', icon: Award },
-    { name: 'Contact', path: '/contact', icon: Mail },
+    { name: 'Home', path: '/' },
+    { name: 'About', path: '/about' },
+    { name: 'Projects', path: '/projects' },
+    { name: 'Certificates', path: '/certificates' },
+    { name: 'Contact', path: '/contact' },
   ]
 
   const isActive = (path) => location.pathname === path
 
   return (
-    <nav className="sticky top-0 z-50 w-full bg-canvas/70 backdrop-blur-xl border-b border-line px-6 py-4 transition-all duration-300">
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
-
-        {/* Logo */}
-        <Link
-          to="/"
-          className="flex items-center gap-2.5 group font-space"
-          onClick={() => setMenuOpen(false)}
-        >
-          <div className="w-9 h-9 rounded-lg bg-accent flex items-center justify-center group-hover:shadow-[0_0_20px_-2px_rgba(139,92,246,0.7)] transition-shadow duration-300">
-            <span className="text-white font-extrabold text-lg">T</span>
-          </div>
-          <span className="text-lg font-bold tracking-tight text-ink">
-            tokito<span className="text-accent">.dev</span>
+    <header className="sticky top-0 z-50 w-full px-3 sm:px-6 pt-3 sm:pt-4">
+      <nav
+        className={`max-w-6xl mx-auto flex items-center justify-between gap-3 rounded-2xl border px-3 sm:px-4 py-2.5 transition-all duration-300 ${
+          scrolled
+            ? 'bg-[#0c100d]/95 backdrop-blur-xl border-[#fff7e8]/15 shadow-[0_16px_40px_-20px_rgba(0,0,0,0.9)]'
+            : 'bg-[#0c100d]/70 backdrop-blur-md border-[#fff7e8]/10'
+        }`}
+      >
+        {/* chunky logo */}
+        <Link to="/" className="flex items-center gap-2 pl-1 group" aria-label="tokito.dev home">
+          <span className="font-display text-[26px] leading-none text-ink tracking-wide group-hover:text-sun transition-colors duration-300">
+            tokito<span className="text-sun">.</span>
           </span>
+          <span className="hidden sm:inline-flex w-2 h-2 rounded-full bg-coral animate-wiggle" />
         </Link>
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-1 bg-elevated/60 p-1 rounded-xl border border-line">
+        {/* Desktop — teal chips like the reference */}
+        <div className="hidden md:flex items-center gap-2">
           {navLinks.map((link) => {
-            const Icon = link.icon
             const active = isActive(link.path)
             return (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`relative flex items-center gap-2 px-4 py-2 rounded-lg text-[13px] font-semibold tracking-wide transition-all duration-300 ${active
-                    ? 'text-white bg-accent/15 border border-accent/40'
-                    : 'text-muted hover:text-ink hover:bg-white/[0.04] border border-transparent'
-                  }`}
+                className={`font-space text-[13px] font-semibold tracking-wide rounded-[10px] px-3.5 py-2 border-[1.5px] transition-all duration-300 ${
+                  active
+                    ? 'bg-sun text-[#0a0d0b] border-sun shadow-[0_8px_20px_-8px_rgba(242,201,76,0.7)]'
+                    : 'text-ink/70 border-[#fff7e8]/20 bg-white/[0.03] hover:bg-sun hover:text-[#0a0d0b] hover:border-sun hover:-translate-y-0.5 hover:-rotate-1'
+                }`}
               >
-                <Icon size={15} className={active ? 'text-accent' : 'text-faint'} />
                 {link.name}
               </Link>
             )
           })}
         </div>
 
-        {/* Hamburger Menu Icon */}
+        <div className="hidden md:flex items-center gap-2">
+          <Link
+            to="/contact"
+            className="group inline-flex items-center gap-2 bg-[#fff7e8] text-[#0a0d0b] font-space text-[13px] font-bold pl-4 pr-1.5 py-1.5 rounded-full hover:bg-sun transition-all duration-300"
+          >
+            Let's talk
+            <span className="w-7 h-7 rounded-full bg-[#0a0d0b] text-[#fff7e8] flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
+              <ArrowUpRight size={14} />
+            </span>
+          </Link>
+        </div>
+
+        {/* Mobile — menu pill like the reference */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden p-2 rounded-lg text-muted hover:text-ink hover:bg-white/[0.04] focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 transition-all duration-200"
-          aria-label="Toggle Menu"
+          className="md:hidden inline-flex items-center gap-2 bg-[#fff7e8] text-[#0a0d0b] font-space text-[13px] font-bold rounded-full pl-4 pr-3 py-2"
+          aria-label="Toggle menu"
           aria-expanded={menuOpen}
         >
-          {menuOpen ? <X size={24} className="text-accent" /> : <Menu size={24} />}
+          Menu
+          {menuOpen ? <X size={16} /> : <Menu size={16} />}
         </button>
-      </div>
+      </nav>
 
-      {/* Mobile Drawer Menu */}
       <div
-        className={`md:hidden absolute top-full left-0 w-full bg-canvas/95 backdrop-blur-2xl border-b border-line overflow-hidden transition-all duration-300 ease-in-out ${menuOpen ? 'max-h-[500px] opacity-100 py-6 px-6' : 'max-h-0 opacity-0 py-0 px-6 pointer-events-none'
-          }`}
+        className={`md:hidden max-w-6xl mx-auto overflow-hidden transition-all duration-300 ease-out ${
+          menuOpen ? 'max-h-[480px] opacity-100 mt-2' : 'max-h-0 opacity-0 mt-0 pointer-events-none'
+        }`}
       >
-        <div className="flex flex-col gap-2">
-          <span className="term-label mb-2">// NAVIGATION</span>
+        <div className="bg-[#0e1310]/95 backdrop-blur-xl border border-[#fff7e8]/12 rounded-2xl p-2.5 shadow-2xl flex flex-wrap gap-2">
           {navLinks.map((link) => {
-            const Icon = link.icon
             const active = isActive(link.path)
             return (
               <Link
                 key={link.path}
                 to={link.path}
-                onClick={() => setMenuOpen(false)}
-                className={`flex items-center gap-4 p-3.5 rounded-xl font-semibold transition-all duration-300 ${active
-                    ? 'text-white bg-accent/15 border border-accent/40'
-                    : 'text-muted hover:text-ink hover:bg-white/[0.04] border border-transparent'
-                  }`}
+                onClick={closeMenu}
+                className={`font-space text-[14px] font-semibold rounded-[10px] px-4 py-2.5 border-[1.5px] transition-colors ${
+                  active
+                    ? 'bg-sun text-[#0a0d0b] border-sun'
+                    : 'text-ink/70 border-[#fff7e8]/20 bg-white/[0.03]'
+                }`}
               >
-                <Icon size={19} className={active ? 'text-accent' : 'text-faint'} />
-                <span className="text-base">{link.name}</span>
+                {link.name}
               </Link>
             )
           })}
+          <Link
+            to="/contact"
+            onClick={closeMenu}
+            className="w-full mt-1 flex items-center justify-center gap-2 bg-[#fff7e8] text-[#0a0d0b] font-space font-bold rounded-xl py-3"
+          >
+            Let's talk <ArrowUpRight size={16} />
+          </Link>
         </div>
       </div>
-    </nav>
+    </header>
   )
 }
 

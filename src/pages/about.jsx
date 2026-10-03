@@ -1,125 +1,143 @@
 import React from 'react'
 import mui from '../components/img/mui2.png'
-import TerminalCard from '../components/TerminalCard'
-import { Target, Heart, Sparkles, ShieldCheck, User, GitBranch } from 'lucide-react'
+import Reveal from '../components/Reveal'
+import SEO from '../components/SEO'
+import Faq from '../components/Faq'
+import PageHead from '../components/PageHead'
+import { Target, Heart, Sparkles, MapPin, ArrowUpRight, Star } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 const About = () => {
-  const cards = [
+  const values = [
     {
       icon: Target,
-      title: 'Engineering Goals',
-      desc: 'Build cross-platform apps with seamless UX — clean code, responsive web & mobile interfaces.',
+      title: 'Engineering goals',
+      desc: 'Cross-platform apps with seamless UX — clean code, responsive web & mobile.',
+      bg: 'bg-accent',
+      fg: 'text-[#0a0d0b]',
+      tilt: '-rotate-1',
     },
     {
       icon: Heart,
-      title: 'Design Philosophy',
-      desc: 'Premium, minimal interfaces — dark surfaces, sharp typography, consistent across platforms.',
+      title: 'Design philosophy',
+      desc: 'Characterful, minimal interfaces — deep surfaces, chunky type, consistent everywhere.',
+      bg: 'bg-sun',
+      fg: 'text-[#0a0d0b]',
+      tilt: 'rotate-1',
     },
     {
       icon: Sparkles,
-      title: 'Creative Coding',
-      desc: 'Always learning new tools, exploring React Native, and refining workflows on both web & mobile.',
+      title: 'Always learning',
+      desc: 'Exploring React Native, Expo & modern UI patterns. Shipping every week.',
+      bg: 'bg-coral',
+      fg: 'text-[#0a0d0b]',
+      tilt: '-rotate-1',
     },
   ]
 
   return (
-    <div className="relative w-full py-14 md:py-20 px-4 md:px-8 overflow-hidden">
-      <div className="max-w-7xl mx-auto">
+    <div className="relative w-full py-12 md:py-20 px-4 md:px-6">
+      <div className="max-w-6xl mx-auto">
+        <SEO
+          title="About"
+          path="/about"
+          description="About t4tokito — Vikas Maurya (Tokito Dev), frontend developer from Delhi working with React, React Native & Tailwind CSS."
+        />
+        <PageHead
+          label="About me"
+          title={<>HEY, I'M <span className="text-sun">VIKAS</span></>}
+          sr=" — Vikas Maurya, known online as t4tokito (Tokito Dev)"
+          sub={
+            <>
+              I'm Vikas — aka <span className="text-ink font-semibold">t4tokito (Tokito Dev)</span>,
+              a frontend developer from Delhi building beautiful, functional, user-centered
+              products for web and mobile.
+            </>
+          }
+          meta={['Delhi, India', 'Frontend Dev', 'Open to work']}
+        />
 
-        {/* Header */}
-        <div className="mb-12 md:mb-16 animate-fade-up">
-          <span className="term-label mb-4">// SYSTEM.READ_CORE_PROFILE</span>
-          <h1 className="text-4xl md:text-6xl font-space font-black tracking-tight text-ink leading-none">
-            About <span className="text-accent">Me</span>
-          </h1>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-start">
-
-          {/* Terminal cards (Cols 1-7) */}
-          <div className="lg:col-span-7 flex flex-col gap-6 animate-fade-up delay-1">
-
-            <TerminalCard
-              file="developer_story.md"
-              icon={User}
-              bodyClassName="font-mono text-[13px] md:text-sm leading-relaxed space-y-2.5"
-            >
-              <p className="text-faint"><span className="text-accent">$</span> cat about/intro.txt</p>
-              <p className="text-muted">
-                Hi! I'm <b className="text-accent">Vikas</b> — a passionate web developer focused on building
-                beautiful, functional, user-centered products.
-              </p>
-              <p className="text-faint"><span className="text-accent">$</span> ls ./foundations</p>
-              <p className="text-ink flex flex-wrap gap-x-4 gap-y-1">
-                <span>HTML</span><span>CSS</span><span>JavaScript</span><span>React.js</span><span>React Native</span><span>TailwindCSS</span><span>NativeWind</span>
-              </p>
-            </TerminalCard>
-
-            <TerminalCard
-              file="growth.log"
-              icon={GitBranch}
-              bodyClassName="font-mono text-[13px] md:text-sm leading-relaxed space-y-2.5"
-            >
-              <p className="text-faint"><span className="text-accent">$</span> tail -f growth.log</p>
-              <p className="text-muted">
-                <span className="text-accent-soft">[learning]</span> always pushing my technical limits.
-              </p>
-              <p className="text-muted">
-                <span className="text-accent-soft">[building]</span> challenging frontend scripts in free time.
-              </p>
-              <p className="text-muted">
-                <span className="text-accent-soft">[tracking]</span> modern UI trends &amp; refining workflows.
-              </p>
-              <p className="text-ink flex items-center gap-2 pt-1">
-                <span className="status-dot" /> status: leveling up<span className="cursor-blink" />
-              </p>
-            </TerminalCard>
-          </div>
-
-          {/* Visual HUD (Cols 8-12) — between cards & values on mobile */}
-          <div className="lg:col-span-5 animate-fade-up delay-3">
-            <div className="glass-card p-5 relative overflow-hidden group">
-              {/* HUD corners */}
-              <span className="absolute top-3 left-3 w-6 h-6 border-t border-l border-accent/50" />
-              <span className="absolute top-3 right-3 w-6 h-6 border-t border-r border-accent/50" />
-              <span className="absolute bottom-3 left-3 w-6 h-6 border-b border-l border-accent/50" />
-              <span className="absolute bottom-3 right-3 w-6 h-6 border-b border-r border-accent/50" />
-
-              <div className="aspect-square rounded-xl bg-elevated/40 border border-line flex items-center justify-center p-6 overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-5 mt-10 md:mt-12 items-stretch">
+          {/* polaroid photo */}
+          <Reveal className="lg:col-span-5" delay={80}>
+            <div className="h-full rounded-[24px] bg-[#fff7e8] p-4 pb-5 rotate-[-1.5deg] hover:rotate-0 transition-transform duration-500 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.8)]">
+              <div className="rounded-[16px] bg-[#0c120e] overflow-hidden aspect-[4/4.2] flex items-center justify-center p-8 group">
                 <img
                   src={mui}
-                  alt="Vikas profile visual"
-                  className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-500"
+                  alt="Vikas Maurya, known online as t4tokito — frontend developer from Delhi"
+                  className="w-full h-full object-contain group-hover:scale-[1.05] group-hover:rotate-1 transition-transform duration-700 ease-out"
                 />
               </div>
-
-              <div className="mt-4 flex items-center justify-between font-mono text-xs">
-                <span className="text-faint">[ PROFILE_RENDER ]</span>
-                <span className="flex items-center gap-1.5 text-accent">
-                  <ShieldCheck size={13} /> verified
+              <div className="flex items-center justify-between px-1.5 pt-3.5 text-[#0a0d0b]">
+                <span className="inline-flex items-center gap-1.5 text-[13px] font-space font-bold">
+                  <MapPin size={14} /> Delhi, India
+                </span>
+                <span className="inline-flex items-center gap-1.5 text-[12px] font-space font-bold bg-[#0a0d0b] text-[#fff7e8] rounded-full px-3 py-1.5 -rotate-2">
+                  <Star size={12} className="text-sun fill-sun" /> t4tokito
                 </span>
               </div>
             </div>
-          </div>
+          </Reveal>
 
-          {/* Values grid (Cols 1-7) */}
-          <div className="lg:col-span-7 animate-fade-up delay-2">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {cards.map((card) => {
-                const Icon = card.icon
-                return (
-                  <div key={card.title} className="glass-card p-5 flex flex-col gap-3">
-                    <div className="p-2.5 rounded-lg bg-elevated border border-line text-accent w-fit">
-                      <Icon size={20} />
-                    </div>
-                    <h4 className="font-space font-bold text-ink text-sm">{card.title}</h4>
-                    <p className="text-muted text-xs leading-relaxed">{card.desc}</p>
-                  </div>
-                )
-              })}
-            </div>
+          <div className="lg:col-span-7 flex flex-col gap-4 md:gap-5">
+            <Reveal delay={120}>
+              <div className="glass-card p-6 md:p-8 !rounded-[24px] rotate-[0.5deg]">
+                <p className="term-label mb-4">My story</p>
+                <p className="font-display text-[26px] md:text-[32px] leading-[1.02] text-ink">
+                  HTML CURIOSITY → REACT OBSESSION → <span className="text-gradient">MOBILE DREAMS</span>
+                </p>
+                <p className="text-muted text-[14.5px] leading-relaxed mt-4">
+                  Started with HTML & CSS curiosity, fell in love with React's component flow,
+                  then went mobile with React Native. Now I obsess over spacing, motion and
+                  load times — the tiny details that make an app feel expensive.
+                </p>
+                <div className="flex flex-wrap gap-2 mt-5">
+                  {['React.js', 'React Native', 'Tailwind', 'Expo', 'JavaScript'].map((t, i) => (
+                    <span
+                      key={t}
+                      className="chip-teal"
+                      style={{ transform: `rotate(${i % 2 === 0 ? -1.5 : 1.5}deg)` }}
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={180}>
+              <div className="rounded-[24px] bg-coral text-[#0a0d0b] p-6 md:p-8 relative overflow-hidden rotate-[-0.5deg] hover:rotate-0 transition-transform duration-500">
+                <Sparkles size={110} className="absolute -right-6 -bottom-6 text-[#0a0d0b]/10 rotate-12 pointer-events-none" />
+                <p className="font-space text-[11px] uppercase tracking-[0.14em] font-bold opacity-60 mb-3">Currently</p>
+                <p className="font-display text-[24px] md:text-[28px] leading-[1.02]">
+                  CLASS 11 · PCM + CS — LEVELING UP DAILY
+                </p>
+                <Link to="/projects" className="inline-flex items-center gap-1.5 font-space text-[14px] font-bold underline underline-offset-4 decoration-2 hover:gap-3 transition-all mt-4">
+                  See what I'm building <ArrowUpRight size={15} />
+                </Link>
+              </div>
+            </Reveal>
           </div>
         </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 mt-4 md:mt-5">
+          {values.map((v, i) => {
+            const Icon = v.icon
+            return (
+              <Reveal key={v.title} delay={i * 90}>
+                <div className={`rounded-[24px] ${v.bg} ${v.fg} ${v.tilt} hover:rotate-0 transition-transform duration-500 p-6 h-full`}>
+                  <span className="w-11 h-11 rounded-2xl bg-[#0a0d0b] text-[#fff7e8] flex items-center justify-center mb-4">
+                    <Icon size={20} />
+                  </span>
+                  <h4 className="font-display text-[22px] leading-none mb-2">{v.title.toUpperCase()}</h4>
+                  <p className="text-[13.5px] leading-relaxed opacity-75 font-medium">{v.desc}</p>
+                </div>
+              </Reveal>
+            )
+          })}
+        </div>
+
+        <Faq />
       </div>
     </div>
   )

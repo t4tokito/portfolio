@@ -1,28 +1,25 @@
 import React from 'react'
-import { Terminal } from 'lucide-react'
 
 /**
- * Terminal-style window card — matches the hero console on the home page.
- * A title bar with a filename + traffic-light dots, then a body slot.
+ * Card — dark clean surface.
+ * Keeps old TerminalCard API so pages don't break.
  */
-const TerminalCard = ({ file = 'session.sh', icon: Icon = Terminal, className = '', bodyClassName = '', children }) => {
+const TerminalCard = ({ file, icon: Icon, className = '', bodyClassName = '', children, title }) => {
   return (
-    <div className={`glass-card rounded-2xl overflow-hidden ${className}`}>
-      {/* title bar */}
-      <div className="flex items-center justify-between px-4 py-3 border-b border-line bg-elevated/40">
-        <div className="flex items-center gap-2 text-faint font-mono text-xs">
-          <Icon size={13} className="text-accent" />
-          <span>{file}</span>
+    <div className={`glass-card overflow-hidden ${className}`}>
+      {(file || title || Icon) && (
+        <div className="flex items-center gap-2.5 px-5 md:px-6 pt-5 pb-1">
+          {Icon && (
+            <span className="w-8 h-8 rounded-xl bg-white/[0.06] border border-white/10 flex items-center justify-center text-accent shrink-0">
+              <Icon size={15} />
+            </span>
+          )}
+          <span className="font-space font-medium text-[13px] text-muted tracking-tight">
+            {title || file}
+          </span>
         </div>
-        <div className="flex items-center gap-1.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-line" />
-          <span className="w-2.5 h-2.5 rounded-full bg-line" />
-          <span className="w-2.5 h-2.5 rounded-full bg-accent/70" />
-        </div>
-      </div>
-
-      {/* body */}
-      <div className={`p-5 md:p-6 ${bodyClassName}`}>
+      )}
+      <div className={`px-5 md:px-6 pb-5 md:pb-6 pt-3 ${bodyClassName}`}>
         {children}
       </div>
     </div>

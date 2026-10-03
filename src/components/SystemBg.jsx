@@ -1,58 +1,39 @@
-import { useEffect, useRef } from 'react'
-
+/**
+ * SmoothBg — deep olive-black ambient background.
+ * Warm sun glow + teal depth. Calm, editorial, colossal vibe.
+ */
 const SystemBg = () => {
-  const canvasRef = useRef(null)
-
-  useEffect(() => {
-    const canvas = canvasRef.current
-    const ctx = canvas.getContext('2d')
-
-    const resize = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
-    }
-    resize()
-    window.addEventListener('resize', resize)
-
-    const fontSize = 13
-    const columns = Math.floor(canvas.width / fontSize)
-    const drops = Array(columns).fill(1)
-
-    const chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789<>/{}[]|&_~#%+=@$£¥¢€システムコードターミナルネットワーク'
-
-    const draw = () => {
-      ctx.fillStyle = 'rgba(5, 5, 5, 0.06)'
-      ctx.fillRect(0, 0, canvas.width, canvas.height)
-
-      for (let i = 0; i < drops.length; i++) {
-        const text = chars[Math.floor(Math.random() * chars.length)]
-        const x = i * fontSize
-        const y = drops[i] * fontSize
-
-        const alpha = Math.min(1, 0.015 + (y / canvas.height) * 0.08)
-        ctx.fillStyle = `rgba(244, 244, 245, ${alpha})`
-        ctx.font = `${fontSize}px "Space Grotesk", monospace`
-        ctx.fillText(text, x, y)
-
-        if (y > canvas.height && Math.random() > 0.975) {
-          drops[i] = 0
-        }
-        drops[i]++
-      }
-    }
-
-    const id = setInterval(draw, 45)
-    return () => {
-      clearInterval(id)
-      window.removeEventListener('resize', resize)
-    }
-  }, [])
-
   return (
-    <canvas
-      ref={canvasRef}
-      className="fixed inset-0 z-0 pointer-events-none"
-    />
+    <div className="fixed inset-0 -z-0 pointer-events-none overflow-hidden" aria-hidden="true">
+      <div className="absolute inset-0 bg-[#0a0d0b]" />
+
+      {/* warm sun glow — top center */}
+      <div
+        className="absolute -top-48 left-1/2 -translate-x-1/2 w-[900px] h-[520px] rounded-full opacity-60 blur-3xl animate-float-soft"
+        style={{
+          background:
+            'radial-gradient(closest-side, rgba(242,201,76,0.10), rgba(242,112,92,0.05), transparent)',
+        }}
+      />
+      {/* teal depth — left */}
+      <div
+        className="absolute top-[35%] -left-40 w-[560px] h-[560px] rounded-full opacity-50 blur-3xl animate-float-soft"
+        style={{
+          background: 'radial-gradient(closest-side, rgba(70,207,169,0.09), transparent)',
+          animationDelay: '-2s',
+        }}
+      />
+      {/* deep green — right */}
+      <div
+        className="absolute top-[55%] -right-48 w-[620px] h-[620px] rounded-full opacity-50 blur-3xl animate-float-soft"
+        style={{
+          background: 'radial-gradient(closest-side, rgba(46,80,52,0.35), transparent)',
+          animationDelay: '-4s',
+        }}
+      />
+
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[720px] h-px bg-gradient-to-r from-transparent via-[#f2c94c]/40 to-transparent" />
+    </div>
   )
 }
 

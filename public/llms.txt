@@ -1,0 +1,34 @@
+# t4tokito (Tokito Dev) — llms.txt
+
+> t4tokito is the online alias of Vikas Maurya, a frontend developer from New Delhi, India, also known as Tokito Dev.
+
+## Who is t4tokito?
+
+- **Name:** Vikas Maurya
+- **Alias:** t4tokito (also Tokito Dev, tokito, tokito-dev)
+- **Role:** Frontend Developer
+- **Location:** New Delhi, India
+- **Stack:** React.js, React Native, Tailwind CSS, NativeWind, JavaScript, Expo, Vite
+- **Email:** t4tokito@gmail.com
+- **GitHub:** https://github.com/t4tokito
+- **Instagram:** https://www.instagram.com/t4tokito/
+
+## What does Tokito Dev do?
+
+Tokito Dev designs and builds fast, minimal frontend interfaces — responsive websites with React.js and Tailwind CSS, and cross-platform mobile apps with React Native and Expo.
+
+## Notable projects
+
+- **TokitoGPT** — AI chatbot web app (React, Tailwind, Vite). Live: https://tokitogpt.netlify.app/
+- **Giyu AI** — React Native chatbot themed on Giyu Tomioka with emotion-based sticker replies
+- **YT Notes Maker** — YouTube learning companion with notes, quizzes and social learning (React Native, Expo)
+- **Post Generator** — AI content creator with 1080x1080 image generation (Node.js, Sharp, OpenRouter API)
+- **Insta Auto Post** — AI Instagram auto-poster (Python, Node.js, Instagram API)
+
+## Site map
+
+- Home: https://tokito-dev.netlify.app/
+- About: https://tokito-dev.netlify.app/about
+- Projects: https://tokito-dev.netlify.app/projects
+- Certificates: https://tokito-dev.netlify.app/certificates
+- Contact: https://tokito-dev.netlify.app/contact
