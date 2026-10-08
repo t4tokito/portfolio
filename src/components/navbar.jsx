@@ -61,6 +61,14 @@ const Navbar = () => {
               </Link>
             )
           })}
+          <a
+            href="https://t4tokito-store.netlify.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-space text-[13px] font-semibold tracking-wide rounded-[10px] px-3.5 py-2 border-[1.5px] transition-all duration-300 inline-flex items-center gap-1 text-ink/70 border-[#fff7e8]/20 bg-white/[0.03] hover:bg-sun hover:text-[#0a0d0b] hover:border-sun hover:-translate-y-0.5 hover:-rotate-1"
+          >
+            Store <ArrowUpRight size={13} />
+          </a>
         </div>
 
         <div className="hidden md:flex items-center gap-2">
@@ -110,6 +118,14 @@ const Navbar = () => {
               </Link>
             )
           })}
+          <a
+            href="https://t4tokito-store.netlify.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-space text-[14px] font-semibold rounded-[10px] px-4 py-2.5 border-[1.5px] transition-colors inline-flex items-center gap-1 text-ink/70 border-[#fff7e8]/20 bg-white/[0.03]"
+          >
+            Store <ArrowUpRight size={14} />
+          </a>
           <Link
             to="/contact"
             onClick={closeMenu}

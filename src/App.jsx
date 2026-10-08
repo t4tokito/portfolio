@@ -9,6 +9,7 @@ import Projects from './pages/Projects'
 import Certificate from './pages/certificate'
 import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
+import EntryGate from './components/EntryGate'
 
 const ScrollToTop = () => {
   const { pathname } = useLocation()
@@ -22,6 +23,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <div className="relative flex flex-col min-h-screen bg-canvas text-ink antialiased">
+        <EntryGate />
         <SystemBg />
         <div className="grid-overlay" aria-hidden="true" />
         <ScrollToTop />
